@@ -1,7 +1,7 @@
 {
-  "name": "sw",
+  "name": "ionic",
   "version": "1.1.1",
-  "description": "sw: An Ionic project",
+  "description": "ionic: An Ionic project",
   "dependencies": {
     "gulp": "^3.5.6",
     "gulp-sass": "^2.0.4",
