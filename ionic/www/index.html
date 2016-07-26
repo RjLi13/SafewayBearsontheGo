@@ -23,11 +23,35 @@
   </head>
   <body ng-app="starter">
 
-    <ion-pane>
-      <ion-header-bar class="bar-stable">
-        <h1 class="title">Ionic Blank Starter</h1>
+    <ion-pane class="home">
+      <ion-header-bar class="bar-stable defaultHeader">
+        <h1 class="title">Bears on the Go</h1>
       </ion-header-bar>
-      <ion-content>
+      <ion-content class="padding">
+
+        <div class="welcomePage">
+
+          <div class="header-text">
+            <h1 class="main-text"> Welcome</h1>
+            <h3 class="secondary-text">Safeway: Bears on the Go</h3> 
+          </div>
+
+          <img src="img/tempLogo.png" alt="Bears on the Go" class="welcomeLogo center" width="180">
+
+          <form class="login-form">
+            <label class="form-label" for="username">Username</label>
+            <input class="input-text" type="text" id="username" required>
+
+            <label class="form-label" for="password">Password</label>
+            <input class="input-text" type="text" id="password" required>
+
+          </form>
+
+          <button class="button button--primary" id="welcome-login">login</button> 
+
+          <div class=button--text id="new-user-login">create an account</div>
+        </div>
+
       </ion-content>
     </ion-pane>
   </body>

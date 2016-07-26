@@ -1,1 +1,93 @@
 /* Empty. Add your own CSS if you like */
+
+.bar.bar-stable.defaultHeader{
+        background-color: #C9DAF8;
+}
+
+defaultHeader {
+        background-color: lightblue;
+}
+
+
+
+
+/* ========== login page specific ========== */
+
+.header-text {
+        padding: 5px;
+}
+
+.welcome-logo {
+        margin: 10px;
+}
+
+.welcome-page {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+}
+
+.login-form {
+        padding: 5px 5px 25px;
+}
+
+
+.form-label {
+        display: block;
+        text-align: left;
+}
+
+.input-text {
+        display: block;
+        margin: 0 50px 0 0;
+        padding: 5px 0;
+        width: 100%;
+        background: lightgrey;
+}
+
+/* ========== generic utils ========== */
+
+.center {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+}
+
+h1.main-text {
+        text-align: center;
+}
+
+
+.button {
+	background-color: lightblue;
+	border-radius: 4px;
+	color: #000000;
+	font-size: 1.2rem;
+	border: solid;
+        border-width: thin;
+	padding: 0 35px;
+}
+
+.button--text {
+	color: blue;
+        text-decoration: underline;
+	background: none;
+	border: none;
+	font-size: 0.9rem;
+	padding: 5px;
+}
+
+/* ========== ionic ========== */
+
+/* to be able to center via ionic */
+.home .scroll-content {
+  display: table !important;
+  width: 100% !important;
+  height: 100% !important;
+  margin-top: -50px;
+  text-align: center;
+}
+.home .scroll {
+  display: table-cell;
+  vertical-align: middle;
+}
