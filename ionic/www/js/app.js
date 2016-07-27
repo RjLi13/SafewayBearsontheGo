@@ -22,3 +22,21 @@ angular.module('starter', ['ionic'])
     }
   });
 })
+
+/* ========== element ids ========== */
+debugger;
+var welcomeLogin = document.getElementById('welcome-login');
+
+
+/* ========== event listeners ========== */
+
+welcomeLogin.addEventListener('click', login);
+
+
+/* ========== button utils ========== */
+
+function login() {
+    console.log("login");
+}
+
+/* ========== generic utils ========== */
