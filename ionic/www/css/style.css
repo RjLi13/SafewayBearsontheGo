@@ -1,4 +1,4 @@
-/* Empty. Add your own CSS if you like */
+/* ========== Header ========== */
 
 .bar.bar-stable.defaultHeader{
         background-color: #C9DAF8;
@@ -7,8 +7,6 @@
 defaultHeader {
         background-color: lightblue;
 }
-
-
 
 
 /* ========== login page specific ========== */
@@ -32,18 +30,19 @@ defaultHeader {
 }
 
 
-.form-label {
+.form--label {
         display: block;
         text-align: left;
 }
 
-.input-text {
+.input--text {
         display: block;
         margin: 0 50px 0 0;
         padding: 5px 0;
         width: 100%;
         background: lightgrey;
 }
+
 
 /* ========== generic utils ========== */
 
@@ -56,7 +55,6 @@ defaultHeader {
 h1.main-text {
         text-align: center;
 }
-
 
 .button {
 	background-color: lightblue;
@@ -77,6 +75,7 @@ h1.main-text {
 	padding: 5px;
 }
 
+
 /* ========== ionic ========== */
 
 /* to be able to center via ionic */
@@ -87,6 +86,7 @@ h1.main-text {
   margin-top: -50px;
   text-align: center;
 }
+
 .home .scroll {
   display: table-cell;
   vertical-align: middle;
