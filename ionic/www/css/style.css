@@ -9,26 +9,28 @@ defaultHeader {
 }
 
 
+/* ========== views ========== */
+
+.view {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+}
+
+
 /* ========== login page specific ========== */
 
 .header-text {
-        padding: 5px;
+        padding: 60px 0px 5px;
 }
 
 .welcome-logo {
         margin: 10px;
 }
 
-.welcome-page {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-}
-
 .login-form {
         padding: 5px 5px 25px;
 }
-
 
 .form--label {
         display: block;
@@ -73,6 +75,14 @@ h1.main-text {
 	border: none;
 	font-size: 0.9rem;
 	padding: 5px;
+}
+
+.container--vertical-buttons {
+        padding: 20px; 0px;
+}
+
+.hidden {
+	display: none;
 }
 
 

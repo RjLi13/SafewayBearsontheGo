@@ -20,23 +20,52 @@ angular.module('starter', ['ionic'])
     if(window.StatusBar) {
       StatusBar.styleDefault();
     }
+
+
+    /* ========== views ========== */
+    // these are the IDs of the different pages
+    var welcomeView = document.getElementById('welcome-view');
+    var mainMenuView = document.getElementById('main-menu-view');
+    views = {'welcome': welcomeView, 'mainMenu': mainMenuView};
+
+
+    /* ========== element ids ========== */
+    var welcomeLogin = document.getElementById('welcome-login');
+    var welcomeRegister = document.getElementById('welcome-register');
+    var loginForm = document.getElementById('login-form')
+
+
+    /* ========== event listeners ========== */
+
+    welcomeRegister.addEventListener('click', register);
+    loginForm.addEventListener('submit', login);
+
+
+
+    /* ========== login utils ========== */
+
+    // *** in backend make this actually login...
+    // views is a list of all views - so the function can change their visibility
+    function login() {
+        debugger;
+        console.log("login");
+        var username = document.getElementById('welcome-username').value
+        var password = document.getElementById('welcome-password').value
+        console.log(username + " " + password)
+
+        // change pages by toggling the visibility of the welcome page
+        views['welcome'].classList.add('hidden');
+        views['welcome'].classList.add('visible');
+
+
+
+    }
+
+    function register() {
+        console.log("register");
+
+    }
+
+    /* ========== generic utils ========== */
   });
 })
-
-/* ========== element ids ========== */
-debugger;
-var welcomeLogin = document.getElementById('welcome-login');
-
-
-/* ========== event listeners ========== */
-
-welcomeLogin.addEventListener('click', login);
-
-
-/* ========== button utils ========== */
-
-function login() {
-    console.log("login");
-}
-
-/* ========== generic utils ========== */
