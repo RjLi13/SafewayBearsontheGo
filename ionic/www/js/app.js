@@ -33,21 +33,22 @@ angular.module('starter', ['ionic'])
     var welcomeLogin = document.getElementById('welcome-login');
     var welcomeRegister = document.getElementById('welcome-register');
     var loginForm = document.getElementById('login-form')
+    var wrongUser = document.getElementById('wrong-user')
 
 
     /* ========== event listeners ========== */
 
     welcomeRegister.addEventListener('click', register);
     loginForm.addEventListener('submit', login);
+    wrongUser.addEventListener('click', logout);
 
 
 
-    /* ========== login utils ========== */
+    /* ========== login and logout utils ========== */
 
     // *** in backend make this actually login...
     // views is a list of all views - so the function can change their visibility
     function login() {
-        debugger;
         console.log("login");
         var username = document.getElementById('welcome-username').value
         var password = document.getElementById('welcome-password').value
@@ -55,15 +56,19 @@ angular.module('starter', ['ionic'])
 
         // change pages by toggling the visibility of the welcome page
         views['welcome'].classList.add('hidden');
-        views['welcome'].classList.add('visible');
-
-
-
+        views['mainMenu'].classList.remove('hidden');
     }
 
     function register() {
         console.log("register");
+    }
 
+    function logout() {
+        console.log("logout");
+
+        // change pages by toggling the visibility of the welcome page
+        views['welcome'].classList.remove('hidden');
+        views['mainMenu'].classList.add('hidden');
     }
 
     /* ========== generic utils ========== */

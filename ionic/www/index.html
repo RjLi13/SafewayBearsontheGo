@@ -40,10 +40,10 @@
 
           <form id="login-form">
             <label class="form--label" for="username">Username</label>
-            <input class="input--text" type="text" id="welcome-username" required>
+            <input class="input--text" type="text" id="welcome-username">
 
             <label class="form--label" for="password">Password</label>
-            <input class="input--text" type="text" id="welcome-password" required>
+            <input class="input--text" type="text" id="welcome-password">
 
             <div class="container--vertical-buttons">
               <button type="submit" value="login" class="button button--primary" id="welcome-login">login</button> 
@@ -54,7 +54,31 @@
 
 
         <div id="main-menu-view" class="hidden">
-          <h1> main menu </h1>
+
+          <div class="header-text">
+            <h1 class="main-text"> Main Menu </h1>
+            <h4 class="secondary-text"> Hello Username! </h4>
+            <h4 class="secondary-text"> What would you like to do today? </h4>
+          </div>
+
+          <div class="container--instructions">
+            <table class="table--instructions">
+              <tr>
+                <td class=table--label> Submit a walk request </td>
+                <td class=table--label> Update your profile </td>
+              </tr>
+              <tr>
+                <td> <img src="img/walkRequest.png" alt="Walk Request" class="walk-request center" width="70"> </td>
+                <td> <img src="img/updateProfile.png" alt="Update Profile" class="walk-request center" width="100"> </td>
+              </tr>
+              <tr>
+                <td> <button class="button button--secondary" id="walk-button"> Walk </td>
+                <td> <button class="button button--secondary" id="profile-button"> Profile </td>
+              </tr>
+            </table>
+          </div>
+
+        <div class="button--text" id="wrong-user"> Not Username? </div>
         </div>
 
 
