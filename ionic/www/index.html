@@ -77,10 +77,31 @@
               </tr>
             </table>
           </div>
-
-        <div class="button--text" id="wrong-user"> Not Username? </div>
+          <div class="button--text" id="wrong-user"> Not Username? </div>
         </div>
 
+
+        <div id="walk-destination-view" class="hidden">
+          <div class="header-text">
+            <h1 class="main-text"> Walk Request </h1>
+            <h4 class="secondary-text"> Please enter a destination, or select one of your preset locations </h4>
+          </div>
+
+          <div class="container--instructions">
+
+            <form id="destination-form">
+              <label class="form--label" for="destination">Destination</label>
+              <input class="input--text" type="text" id="input-destination">
+            </form>
+
+            <div class="container--vertical-buttons">
+              <button type="submit" value="login" class="button button--primary" id="welcome-login">Go!</button> 
+              <div class=button--text id="cancel-request">cancel</div>
+            </div>
+
+          </div>
+        </div>
+        
 
       </ion-content>
     </ion-pane>

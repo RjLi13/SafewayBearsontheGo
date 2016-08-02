@@ -26,14 +26,18 @@ angular.module('starter', ['ionic'])
     // these are the IDs of the different pages
     var welcomeView = document.getElementById('welcome-view');
     var mainMenuView = document.getElementById('main-menu-view');
-    views = {'welcome': welcomeView, 'mainMenu': mainMenuView};
+    var walkDestinationView = document.getElementById('walk-destination-view');
+    views = {'welcome': welcomeView, 'mainMenu': mainMenuView, 'walkDestination': walkDestinationView};
 
 
     /* ========== element ids ========== */
     var welcomeLogin = document.getElementById('welcome-login');
     var welcomeRegister = document.getElementById('welcome-register');
-    var loginForm = document.getElementById('login-form')
-    var wrongUser = document.getElementById('wrong-user')
+    var loginForm = document.getElementById('login-form');
+    var wrongUser = document.getElementById('wrong-user');
+    var menuWalk = document.getElementById('walk-button');        // main menu
+    var menuProfile = document.getElementById('profile-button');  // main menu
+    var cancelRequest = document.getElementById('cancel-request');  // first walk request view
 
 
     /* ========== event listeners ========== */
@@ -41,10 +45,12 @@ angular.module('starter', ['ionic'])
     welcomeRegister.addEventListener('click', register);
     loginForm.addEventListener('submit', login);
     wrongUser.addEventListener('click', logout);
+    menuWalk.addEventListener('click', startWalkRequest);
+    cancelRequest.addEventListener('click', goToMainMenu);
 
 
 
-    /* ========== login and logout utils ========== */
+    /* ========== view transition utils ========== */
 
     // *** in backend make this actually login...
     // views is a list of all views - so the function can change their visibility
@@ -70,6 +76,27 @@ angular.module('starter', ['ionic'])
         views['welcome'].classList.remove('hidden');
         views['mainMenu'].classList.add('hidden');
     }
+
+    // this is the *first* walk request screen
+    // start user walk request here
+    function startWalkRequest() {
+        console.log("start walk request");
+
+        // change pages by toggling the visibility of the welcome page
+        views['walkDestination'].classList.remove('hidden');
+        views['mainMenu'].classList.add('hidden');
+    }
+
+
+    function goToMainMenu() {
+        console.log("Go to Main Menu");
+        for (var view in views) {
+            debugger;
+            views[view].classList.add('hidden');
+        }
+        views['mainMenu'].classList.remove('hidden');
+    }
+
 
     /* ========== generic utils ========== */
   });
