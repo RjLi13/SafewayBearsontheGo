@@ -37,6 +37,7 @@ angular.module('starter', ['ionic'])
     var wrongUser = document.getElementById('wrong-user');
     var menuWalk = document.getElementById('walk-button');        // main menu
     var menuProfile = document.getElementById('profile-button');  // main menu
+    var menuGreeting = document.getElementById('main-menu-greeting');  // main menu
     var cancelRequest = document.getElementById('cancel-request');  // first walk request view
 
 
@@ -56,9 +57,14 @@ angular.module('starter', ['ionic'])
     // views is a list of all views - so the function can change their visibility
     function login() {
         console.log("login");
-        var username = document.getElementById('welcome-username').value
-        var password = document.getElementById('welcome-password').value
+        var username = document.getElementById('welcome-username').value;
+        var password = document.getElementById('welcome-password').value;
         console.log(username + " " + password)
+        localStorageSet('username', username);
+        localStorageSet('password', password);
+        if (username !== '') {
+            menuGreeting.innerHTML = "Hello, " + username + "!";
+        }
 
         // change pages by toggling the visibility of the welcome page
         views['welcome'].classList.add('hidden');
@@ -91,7 +97,6 @@ angular.module('starter', ['ionic'])
     function goToMainMenu() {
         console.log("Go to Main Menu");
         for (var view in views) {
-            debugger;
             views[view].classList.add('hidden');
         }
         views['mainMenu'].classList.remove('hidden');
@@ -99,5 +104,19 @@ angular.module('starter', ['ionic'])
 
 
     /* ========== generic utils ========== */
+
+    function localToSession() {
+        sessionStorage.setItem("address", localStorage.getItem("address"));
+        sessionStorage.setItem("user", localStorage.getItem("user"));
+    }
+
+    function localStorageSet(key, value) {
+        localStorage.setItem(key, value);
+    }
+
+    function localStorageGet(key) {
+        localStorage.getItem(key);
+    }
+
   });
 })
