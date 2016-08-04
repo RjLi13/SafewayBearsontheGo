@@ -35,16 +35,12 @@
             <h1 class="main-text"> Welcome</h1>
             <h3 class="secondary-text">Safeway: Bears on the Go</h3> 
           </div>
-
           <img src="img/tempLogo.png" alt="Bears on the Go" class="welcome-logo center" width="180">
-
           <form id="login-form">
-            <label class="form--label" for="username">Username</label>
+            <label class="form--label" for="welcome-username">Username</label>
             <input class="input--text" type="text" id="welcome-username">
-
-            <label class="form--label" for="password">Password</label>
+            <label class="form--label" for="welcome-password">Password</label>
             <input class="input--text" type="text" id="welcome-password">
-
             <div class="container--vertical-buttons">
               <button type="submit" value="login" class="button button--primary" id="welcome-login">login</button> 
               <div class=button--text id="welcome-register">create an account</div>
@@ -53,14 +49,53 @@
         </div>
 
 
-        <div id="main-menu-view" class="hidden">
+        <div id="register-email-view" class="hidden">
+          <div class="header-text">
+            <h1 class="main-text"> Registration </h1>
+            <h4 class="secondary-text"> Step One </h4>
+            <p class="secondary-text"> Looks like it's your first time using Safeway: Bears on the Go. Please begin by entering your berkeley email address.</p>
+          </div>
+          <div class="container--instructions">
+            <form id="email-form">
+              <label class="form--label" for="register-email">Berkeley Email</label>
+              <input class="input--text" type="text" id="register-email">
+              <div class="container--vertical-buttons">
+                <button value="email" class="button button--primary" id="submit-email-button">Continue</button> 
+              </div>
+            </form>
+          </div>
+        </div>
 
+
+        <div id="register-home-view" class="hidden">
+          <div class="header-text">
+            <h1 class="main-text"> Registration </h1>
+            <h4 class="secondary-text"> Step Two </h4>
+            <p class="secondary-text"> Would you like to add a home address to your account? </p>
+          </div>
+          <div class="container--instructions">
+            <form id="home-form">
+              <label class="form--label" for="home-line-one"> Street Address </label>
+              <input class="input--text" type="text" id="home-line-one">
+              <label class="form--label" for="home-city"> City </label>
+              <input class="input--text" type="text" id="home-city">
+              <label class="form--label" for="home-postal-code"> Postal Code </label>
+              <input class="input--text" type="text" id="home-postal-code">
+              <div class="container--vertical-buttons">
+                <button value="email" class="button button--primary" id="submit-home-button">Continue</button> 
+                <div class=button--text id="skip-home-button">not now</div>
+              </div>
+            </form>
+          </div>
+        </div>
+
+
+        <div id="main-menu-view" class="hidden">
           <div class="header-text">
             <h1 class="main-text"> Main Menu </h1>
             <h4 id="main-menu-greeting" class="secondary-text"> Hello! </h4>
             <h4 class="secondary-text"> What would you like to do today? </h4>
           </div>
-
           <div class="container--instructions">
             <table class="table--instructions">
               <tr>
@@ -86,19 +121,15 @@
             <h1 class="main-text"> Walk Request </h1>
             <h4 class="secondary-text"> Please enter a destination, or select one of your preset locations </h4>
           </div>
-
           <div class="container--instructions">
-
             <form id="destination-form">
               <label class="form--label" for="destination">Destination</label>
               <input class="input--text" type="text" id="input-destination">
             </form>
-
             <div class="container--vertical-buttons">
               <button type="submit" value="login" class="button button--primary" id="welcome-login">Go!</button> 
               <div class=button--text id="cancel-request">cancel</div>
             </div>
-
           </div>
         </div>
         

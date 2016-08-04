@@ -25,9 +25,17 @@ angular.module('starter', ['ionic'])
     /* ========== views ========== */
     // these are the IDs of the different pages
     var welcomeView = document.getElementById('welcome-view');
+    var registerEmailView = document.getElementById('register-email-view');
+    var registerHomeView = document.getElementById('register-home-view');
     var mainMenuView = document.getElementById('main-menu-view');
     var walkDestinationView = document.getElementById('walk-destination-view');
-    views = {'welcome': welcomeView, 'mainMenu': mainMenuView, 'walkDestination': walkDestinationView};
+    views = {
+        'welcome': welcomeView,
+        'registerEmail': registerEmailView,
+        'registerHome': registerHomeView,
+        'mainMenu': mainMenuView,
+        'walkDestination': walkDestinationView
+    };
 
 
     /* ========== element ids ========== */
@@ -35,10 +43,13 @@ angular.module('starter', ['ionic'])
     var welcomeRegister = document.getElementById('welcome-register');
     var loginForm = document.getElementById('login-form');
     var wrongUser = document.getElementById('wrong-user');
-    var menuWalk = document.getElementById('walk-button');        // main menu
-    var menuProfile = document.getElementById('profile-button');  // main menu
-    var menuGreeting = document.getElementById('main-menu-greeting');  // main menu
-    var cancelRequest = document.getElementById('cancel-request');  // first walk request view
+    var menuWalk = document.getElementById('walk-button');              // main menu
+    var menuProfile = document.getElementById('profile-button');        // main menu
+    var menuGreeting = document.getElementById('main-menu-greeting');   // main menu
+    var cancelRequest = document.getElementById('cancel-request');      // first walk request view
+    var registerEmail = document.getElementById('submit-email-button');   // first registration view
+    var registerHome = document.getElementById('submit-home-button');   // second registration view
+    var registerSkipHome = document.getElementById('skip-home-button');   // second registration view
 
 
     /* ========== event listeners ========== */
@@ -48,6 +59,9 @@ angular.module('starter', ['ionic'])
     wrongUser.addEventListener('click', logout);
     menuWalk.addEventListener('click', startWalkRequest);
     cancelRequest.addEventListener('click', goToMainMenu);
+    registerEmail.addEventListener('click', submitEmail);
+    registerHome.addEventListener('click', submitHome);
+    registerSkipHome.addEventListener('click', skipHome);
 
 
 
@@ -73,6 +87,8 @@ angular.module('starter', ['ionic'])
 
     function register() {
         console.log("register");
+        views['welcome'].classList.add('hidden');
+        views['registerEmail'].classList.remove('hidden');
     }
 
     function logout() {
@@ -81,6 +97,35 @@ angular.module('starter', ['ionic'])
         // change pages by toggling the visibility of the welcome page
         views['welcome'].classList.remove('hidden');
         views['mainMenu'].classList.add('hidden');
+    }
+
+    function submitEmail() {
+        console.log("submit email");
+        var email = document.getElementById('register-email').value;
+        console.log("saved: " + email);
+        localStorageSet('email', email);
+        views['registerEmail'].classList.add('hidden');
+        views['registerHome'].classList.remove('hidden');
+    }
+
+    function submitHome() {
+        console.log("submit home");
+        // somepoint down the road, consider two line street addresses?
+        var homeStreetAddress = document.getElementById('home-line-one').value;
+        var homeCity = document.getElementById('home-city').value;
+        var homePostalCode = document.getElementById('home-postal-code').value;
+        console.log(homeStreetAddress + " " + homeCity + " " + homePostalCode)
+        localStorageSet('homeStreetAddress', homeStreetAddress);
+        localStorageSet('homeCity', homeCity);
+        localStorageSet('homePostalCode', homePostalCode);
+        views['registerHome'].classList.add('hidden');
+        // views['registerHome'].classList.remove('hidden');
+    }
+
+    function skipHome() {
+        console.log("skip home");
+        views['registerHome'].classList.add('hidden');
+        // views['registerHome'].classList.remove('hidden');
     }
 
     // this is the *first* walk request screen
