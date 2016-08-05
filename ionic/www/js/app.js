@@ -27,12 +27,14 @@ angular.module('starter', ['ionic'])
     var welcomeView = document.getElementById('welcome-view');
     var registerEmailView = document.getElementById('register-email-view');
     var registerHomeView = document.getElementById('register-home-view');
+    var registerConfirmView = document.getElementById('register-confirm-view');
     var mainMenuView = document.getElementById('main-menu-view');
     var walkDestinationView = document.getElementById('walk-destination-view');
     views = {
         'welcome': welcomeView,
         'registerEmail': registerEmailView,
         'registerHome': registerHomeView,
+        'registerConfirm': registerConfirmView,
         'mainMenu': mainMenuView,
         'walkDestination': walkDestinationView
     };
@@ -119,13 +121,13 @@ angular.module('starter', ['ionic'])
         localStorageSet('homeCity', homeCity);
         localStorageSet('homePostalCode', homePostalCode);
         views['registerHome'].classList.add('hidden');
-        // views['registerHome'].classList.remove('hidden');
+        views['registerConfirm'].classList.remove('hidden');
     }
 
     function skipHome() {
         console.log("skip home");
         views['registerHome'].classList.add('hidden');
-        // views['registerHome'].classList.remove('hidden');
+        views['registerConfirm'].classList.remove('hidden');
     }
 
     // this is the *first* walk request screen
