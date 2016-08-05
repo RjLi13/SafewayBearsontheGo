@@ -52,6 +52,7 @@ angular.module('starter', ['ionic'])
     var registerEmail = document.getElementById('submit-email-button');   // first registration view
     var registerHome = document.getElementById('submit-home-button');   // second registration view
     var registerSkipHome = document.getElementById('skip-home-button');   // second registration view
+    var doneRegistering = document.getElementById('done-registering-button');   // last registration view
 
 
     /* ========== event listeners ========== */
@@ -64,6 +65,7 @@ angular.module('starter', ['ionic'])
     registerEmail.addEventListener('click', submitEmail);
     registerHome.addEventListener('click', submitHome);
     registerSkipHome.addEventListener('click', skipHome);
+    doneRegistering.addEventListener('click', goToMainMenu);
 
 
 
@@ -89,23 +91,31 @@ angular.module('starter', ['ionic'])
 
     function register() {
         console.log("register");
+        localStorage.clear();
         views['welcome'].classList.add('hidden');
         views['registerEmail'].classList.remove('hidden');
     }
 
     function logout() {
         console.log("logout");
-
+        localStorage.clear();
         // change pages by toggling the visibility of the welcome page
         views['welcome'].classList.remove('hidden');
         views['mainMenu'].classList.add('hidden');
     }
 
+    // submits email, and username + password
     function submitEmail() {
         console.log("submit email");
         var email = document.getElementById('register-email').value;
-        console.log("saved: " + email);
+        var username = document.getElementById('register-username').value;
+        var password = document.getElementById('register-password').value;
+
+        console.log("saved: " + email + ", " + username + ", " + password);
         localStorageSet('email', email);
+        localStorageSet('username', username);
+        localStorageSet('password', password);
+
         views['registerEmail'].classList.add('hidden');
         views['registerHome'].classList.remove('hidden');
     }
@@ -122,12 +132,30 @@ angular.module('starter', ['ionic'])
         localStorageSet('homePostalCode', homePostalCode);
         views['registerHome'].classList.add('hidden');
         views['registerConfirm'].classList.remove('hidden');
+        fillAccountText();
     }
 
     function skipHome() {
         console.log("skip home");
         views['registerHome'].classList.add('hidden');
         views['registerConfirm'].classList.remove('hidden');
+        fillAccountText();
+    }
+
+    function fillAccountText() {
+        console.log('fill account text');
+        var accountConfirmUsername = document.getElementById('account-confirm-username');
+        var accountConfirmEmail = document.getElementById('account-confirm-email');
+        var accountConfirmAddress = document.getElementById('account-confirm-address');
+        var username = localStorageGet('username');
+        var email = localStorageGet('email');
+        var address = localStorageGet('homeStreetAddress');
+        if (username)
+            accountConfirmUsername.innerHTML = username;
+        if (email)
+            accountConfirmEmail.innerHTML = email;
+        if (address)
+            accountConfirmAddress.innerHTML = address;
     }
 
     // this is the *first* walk request screen
@@ -162,7 +190,7 @@ angular.module('starter', ['ionic'])
     }
 
     function localStorageGet(key) {
-        localStorage.getItem(key);
+        return localStorage.getItem(key);
     }
 
   });

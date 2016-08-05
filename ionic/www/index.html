@@ -53,12 +53,17 @@
           <div class="header-text">
             <h1 class="main-text"> Registration </h1>
             <h4 class="secondary-text"> Step One </h4>
-            <p class="secondary-text"> Looks like it's your first time using Safeway: Bears on the Go. Please begin by entering your berkeley email address.</p>
+            <p class="secondary-text"> Looks like it's your first time using Bears on the Go. </p>
+            <p class="secondary-text"> Please begin by entering your berkeley email address, with a username and password.</p>
           </div>
           <div class="container--instructions">
             <form id="email-form">
               <label class="form--label" for="register-email">Berkeley Email</label>
               <input class="input--text" type="text" id="register-email">
+              <label class="form--label" for="register-username">Username</label>
+              <input class="input--text" type="text" id="register-username">
+              <label class="form--label" for="register-password">Password</label>
+              <input class="input--text" type="text" id="register-password">
               <div class="container--vertical-buttons">
                 <button value="email" class="button button--primary" id="submit-email-button">Continue</button> 
               </div>
@@ -92,15 +97,15 @@
 
         <div id="register-confirm-view" class="hidden">
           <div class="header-text">
-            <h1 class="main-text"> Registration </h1>
-            <h4 class="secondary-text"> Confirmation </h4>
-            <p class="secondary-text"> You have successfully created an account! </p>
+            <h1 class="main-text"> Registration Complete </h1>
+            <h4 class="secondary-text"> You have successfully created an account! </h4>
           </div>
           <div class="container--instructions">
-            <p> temp tbd here </p>
+            <p id="account-confirm-username"></p>
+            <p id="account-confirm-email"></p>
+            <p id="account-confirm-address"></p>
             <div class="container--vertical-buttons">
-              <button value="email" class="button button--primary" id="submit-home-button">Continue</button> 
-              <div class=button--text id="skip-home-button">cancel</div>
+              <button value="email" class="button button--primary" id="done-registering-button">Continue</button> 
             </div>
             </form>
           </div>
