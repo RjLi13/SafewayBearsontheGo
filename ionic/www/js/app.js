@@ -30,13 +30,15 @@ angular.module('starter', ['ionic'])
     var registerConfirmView = document.getElementById('register-confirm-view');
     var mainMenuView = document.getElementById('main-menu-view');
     var walkDestinationView = document.getElementById('walk-destination-view');
+    var mapTestView = document.getElementById('map-test-view');
     views = {
         'welcome': welcomeView,
         'registerEmail': registerEmailView,
         'registerHome': registerHomeView,
         'registerConfirm': registerConfirmView,
         'mainMenu': mainMenuView,
-        'walkDestination': walkDestinationView
+        'walkDestination': walkDestinationView,
+        'mapTest': mapTestView
     };
 
 
@@ -45,14 +47,15 @@ angular.module('starter', ['ionic'])
     var welcomeRegister = document.getElementById('welcome-register');
     var loginForm = document.getElementById('login-form');
     var wrongUser = document.getElementById('wrong-user');
-    var menuWalk = document.getElementById('walk-button');              // main menu
-    var menuProfile = document.getElementById('profile-button');        // main menu
-    var menuGreeting = document.getElementById('main-menu-greeting');   // main menu
-    var cancelRequest = document.getElementById('cancel-request');      // first walk request view
-    var registerEmail = document.getElementById('submit-email-button');   // first registration view
-    var registerHome = document.getElementById('submit-home-button');   // second registration view
-    var registerSkipHome = document.getElementById('skip-home-button');   // second registration view
-    var doneRegistering = document.getElementById('done-registering-button');   // last registration view
+    var menuWalk = document.getElementById('walk-button');                     // main menu
+    var menuProfile = document.getElementById('profile-button');               // main menu
+    var menuGreeting = document.getElementById('main-menu-greeting');          // main menu
+    var cancelRequest = document.getElementById('cancel-request');             // first walk request view
+    var registerEmail = document.getElementById('submit-email-button');        // first registration view
+    var registerHome = document.getElementById('submit-home-button');          // second registration view
+    var registerSkipHome = document.getElementById('skip-home-button');        // second registration view
+    var doneRegistering = document.getElementById('done-registering-button');  // last registration view
+    var mapTest = document.getElementById('welcome-map-test-button');
 
 
     /* ========== event listeners ========== */
@@ -66,6 +69,7 @@ angular.module('starter', ['ionic'])
     registerHome.addEventListener('click', submitHome);
     registerSkipHome.addEventListener('click', skipHome);
     doneRegistering.addEventListener('click', goToMainMenu);
+    mapTest.addEventListener('click', goToMapTest);
 
 
 
@@ -170,13 +174,28 @@ angular.module('starter', ['ionic'])
 
 
     function goToMainMenu() {
-        console.log("Go to Main Menu");
+        console.log('Go to Main Menu');
         for (var view in views) {
             views[view].classList.add('hidden');
         }
         views['mainMenu'].classList.remove('hidden');
     }
 
+    function goToMapTest() {
+        console.log('map test');
+        initMap();
+        views['welcome'].classList.add('hidden');
+        views['mapTest'].classList.remove('hidden');
+    }
+
+    function initMap() {
+        debugger;
+        var mapDiv = document.getElementById('map');
+        var map = new google.maps.Map(mapDiv, {
+            center: {lat: 37.8718992, lng: -122.2585399},
+            zoom: 16
+        });
+    }
 
     /* ========== generic utils ========== */
 
