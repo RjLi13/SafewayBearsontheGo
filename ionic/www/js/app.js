@@ -190,12 +190,26 @@ angular.module('starter', ['ionic'])
 
     function initMap() {
         debugger;
+        var BERKELEY = {lat: 37.8718992, lng: -122.2585399}
+        var SODA = {lat: 37.875594, lng: -122.258786}
         var mapDiv = document.getElementById('map');
         var map = new google.maps.Map(mapDiv, {
-            center: {lat: 37.8718992, lng: -122.2585399},
+            center: BERKELEY,
             zoom: 16
         });
+        var berkeleyMarker=new google.maps.Marker({
+          position: BERKELEY,
+          title: "Berkeley",
+        });
+        berkeleyMarker.setMap(map);
+
+        var sodaMarker=new google.maps.Marker({
+          position: SODA,
+          title: "Soda Hall",
+        });
+        sodaMarker.setMap(map);
     }
+
 
     /* ========== generic utils ========== */
 
