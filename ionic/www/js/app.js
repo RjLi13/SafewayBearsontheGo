@@ -190,8 +190,8 @@ angular.module('starter', ['ionic'])
 
     function initMap() {
         debugger;
-        var BERKELEY = {lat: 37.8718992, lng: -122.2585399}
-        var SODA = {lat: 37.875594, lng: -122.258786}
+        var BERKELEY = {lat: 37.8718992, lng: -122.2585399};
+        var SODA = {lat: 37.875594, lng: -122.258786};
         var mapDiv = document.getElementById('map');
         var map = new google.maps.Map(mapDiv, {
             center: BERKELEY,
@@ -208,7 +208,20 @@ angular.module('starter', ['ionic'])
           title: "Soda Hall",
         });
         sodaMarker.setMap(map);
+        testGeocode();
     }
+
+    function testGeocode() {
+        debugger;
+        // 387 Soda Hall, Berkeley, CA 94720
+        // 2599 Hearst Avenue
+        key = 'AIzaSyATSANN1cNu2KMnMc4h_1P0CkM4R6A3TS4';
+        var address = '2599+Hearst+Avenue,+Berkeley,+CA';
+        var url = 'https://maps.googleapis.com/maps/api/geocode/json?address=';
+        url = url + address + '&key=' + key;
+        console.log(url);
+
+	}
 
 
     /* ========== generic utils ========== */
