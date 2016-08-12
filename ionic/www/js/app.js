@@ -208,19 +208,70 @@ angular.module('starter', ['ionic'])
           title: "Soda Hall",
         });
         sodaMarker.setMap(map);
-        testGeocode();
+        testGeocode(map);
     }
 
-    function testGeocode() {
-        debugger;
+
+    /* ========== geolocation utils ========== */
+
+    var geocoder = new google.maps.Geocoder();
+    function makeMarker(pos) {
+
+        var marker = new google.maps.Marker({
+            map: map,
+            position: pos,
+        });
+        return marker
+    }
+
+    // geocode helper
+    function processGeocode(results, status) {
+        if (status == google.maps.GeocoderStatus.OK) {
+            var resultLocation = results[0].geometry.location;
+            console.log("success!" + resultLocation);
+            return (resultLocation, makeMarker(resultLocation));
+            marker.setMap(map);
+        }
+    };
+
+    // take an address string, and a map, and place a marker at that address
+    function geocode(address, map) {
+        var locationAndMarker = geocoder.geocode({address: address}, processGeocode);
+        var resultLocation = locationAndMarker[0];
+        var marker = locationAndMarker[1];
+        marker.setMap(map);
+        map.setCenter(resultLocation);
+        map.setZoom(17);
+    }
+
+
+
+    function testGeocode(map) {
         // 387 Soda Hall, Berkeley, CA 94720
         // 2599 Hearst Avenue
+
+        // prob not needed
+        /*
         key = 'AIzaSyATSANN1cNu2KMnMc4h_1P0CkM4R6A3TS4';
         var address = '2599+Hearst+Avenue,+Berkeley,+CA';
         var url = 'https://maps.googleapis.com/maps/api/geocode/json?address=';
         url = url + address + '&key=' + key;
         console.log(url);
+        */
+        function processGeocode(results, status) {
+            if (status == google.maps.GeocoderStatus.OK) {
+                var resultLocation = results[0].geometry.location;
+                console.log("success!" + resultLocation);
+                marker = makeMarker(resultLocation);
+                marker.setMap(map);
+                map.setCenter(resultLocation);
+                map.setZoom(17);
+            }
+        };
 
+        var simpleAddress = '2599 Hearst Aveneue Berkeley CA';
+        var geocoder = new google.maps.Geocoder();
+        geocoder.geocode({address: simpleAddress}, processGeocode);
 	}
 
 
