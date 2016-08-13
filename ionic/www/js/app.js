@@ -232,6 +232,9 @@ angular.module('starter', ['ionic'])
             return (resultLocation, makeMarker(resultLocation));
             marker.setMap(map);
         }
+        else {
+            console.log("problem geocoding (helper)");
+        }
     };
 
     // take an address string, and a map, and place a marker at that address
@@ -243,8 +246,6 @@ angular.module('starter', ['ionic'])
         map.setCenter(resultLocation);
         map.setZoom(17);
     }
-
-
 
     function testGeocode(map) {
         // 387 Soda Hall, Berkeley, CA 94720
@@ -266,6 +267,9 @@ angular.module('starter', ['ionic'])
                 marker.setMap(map);
                 map.setCenter(resultLocation);
                 map.setZoom(17);
+            }
+            else {
+                console.log("problem geocoding!");
             }
         };
 
